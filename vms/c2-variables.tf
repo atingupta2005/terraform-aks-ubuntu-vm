@@ -39,5 +39,7 @@ variable "vm_count" {
 
 variable "vm_region" {
   type = list(string)
-  default = ["EastUS", "EastUS", "EastUS", "EastUS", "EastUS", "EastUS", "EastUS", "EastUS", "EastUS", "EastUS", "EastUS2", "EastUS2", "EastUS2", "EastUS2", "EastUS2", "EastUS2", "EastUS2", "EastUS2", "EastUS2", "NorthEurope", "NorthEurope", "NorthEurope", "NorthEurope", "NorthEurope", "NorthEurope", "NorthEurope", "NorthEurope", "CentralUS", "CentralUS", "CentralUS", "CentralUS", "CentralUS", "CentralUS", "CentralUS", "CentralUS", "CentralUS", "JapanEast", "JapanEast", "JapanEast", "JapanEast", "JapanEast", "JapanEast", "JapanEast", "JapanEast", "JapanEast", "CanadaCentral", "CanadaCentral", "CanadaCentral", "CanadaCentral", "CanadaCentral", "CanadaCentral", "CanadaCentral", "CanadaCentral", "CanadaCentral", "EastUSCanadaCentral"]
+  default = ["EastUS", "EastUS"]
 }
+
+# , "EastUS", "EastUS", "EastUS", "EastUS", "EastUS", "EastUS", "EastUS", "EastUS", "EastUS2", "EastUS2", "EastUS2", "EastUS2", "EastUS2", "EastUS2", "EastUS2", "EastUS2", "EastUS2", "NorthEurope", "NorthEurope", "NorthEurope", "NorthEurope", "NorthEurope", "NorthEurope", "NorthEurope", "NorthEurope", "CentralUS", "CentralUS", "CentralUS", "CentralUS", "CentralUS", "CentralUS", "CentralUS", "CentralUS", "CentralUS", "JapanEast", "JapanEast", "JapanEast", "JapanEast", "JapanEast", "JapanEast", "JapanEast", "JapanEast", "JapanEast", "CanadaCentral", "CanadaCentral", "CanadaCentral", "CanadaCentral", "CanadaCentral", "CanadaCentral", "CanadaCentral", "CanadaCentral", "CanadaCentral", "EastUSCanadaCentral
