@@ -39,8 +39,8 @@
       ansible.builtin.apt:
         deb: /tmp/rstudio-server-2021.09.0-351-amd64.deb
     
-    - name: Execute the command in remote shell; stdout goes to the specified file on the remote
-        ansible.builtin.shell: install-azure-cli.sh >> install-azure-cli.log
+    - name: Execute the command in remote shell
+      ansible.builtin.shell: install-azure-cli.sh >> install-azure-cli.log
     - name: Run the equivalent of "apt-get update" as a separate step
       ansible.builtin.apt:
         update_cache: yes
