@@ -2,8 +2,15 @@
 lnx-hpqzdp-1-1.eastus2.cloudapp.azure.com
 lnx-hpqzdp-1-2.eastus2.cloudapp.azure.com
 lnx-hpqzdp-1-3.eastus2.cloudapp.azure.com
-
-
+lnx-hpqzdp-1-4.eastus2.cloudapp.azure.com
+lnx-hpqzdp-1-5.eastus2.cloudapp.azure.com
+lnx-hpqzdp-1-6.eastus2.cloudapp.azure.com
+lnx-hpqzdp-2-1.japaneast.cloudapp.azure.com
+lnx-hpqzdp-2-2.japaneast.cloudapp.azure.com
+lnx-hpqzdp-2-3.japaneast.cloudapp.azure.com
+lnx-hpqzdp-2-4.japaneast.cloudapp.azure.com
+lnx-hpqzdp-2-5.japaneast.cloudapp.azure.com
+lnx-hpqzdp-2-6.japaneast.cloudapp.azure.com
 
 [all:vars]
 ansible_python_interpreter=/usr/bin/python3
