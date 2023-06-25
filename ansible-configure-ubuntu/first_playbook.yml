@@ -41,7 +41,7 @@
     
     - name: Execute the command in remote shell
       script:
-       cmd: install-azure-cli.sh >> install-azure-cli.log
+       cmd: install-azure-cli.sh > install-azure-cli.log
       
     - name: Run the equivalent of "apt-get update" as a separate step
       ansible.builtin.apt:
@@ -52,6 +52,12 @@
         pkg:
         - azure-cli
         
+        
+    - name: Install "kubectl" with option --classic
+      snap:
+        name: kubectl
+        classic: true
+    
     - name: Execute the azure login command in remote shell
       script:
-       cmd: login-azure-cli.sh >> login-azure-cli.log
+       cmd: login-azure-cli.sh > login-azure-cli.log
