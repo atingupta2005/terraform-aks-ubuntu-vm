@@ -1,5 +1,6 @@
 [demoservers]
 uaksvm-mplqgh-0.eastus.cloudapp.azure.com
+uaksvm-mplqgh-1.eastus.cloudapp.azure.com
 
 
 [all:vars]
