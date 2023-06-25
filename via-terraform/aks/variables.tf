@@ -11,7 +11,7 @@ variable "cluster_count" {
 
 variable "vm_size" {
   type = string
-  default = "standard_b2s"
+  default = "standard_b2ms"
 }
 
 variable "node_count" {

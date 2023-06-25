@@ -37,5 +37,6 @@ resource "azurerm_kubernetes_cluster" "default" {
     node_count      = var.node_count
     vm_size         = var.vm_size
     os_disk_size_gb = 30
+	enable_node_public_ip = true
   }
 }
