@@ -1,7 +1,7 @@
 # Resource-1: Azure Resource Group
 variable "aks_regions" {
   type = list(string)
-  default = ["EastUS", "WestUS", "UKSouth", "SouthCentralUS", "NorthEurope", "JapanEast", "EastUS2"]
+  default = ["EastUS", "WestUS", "UKSouth", "NorthEurope", "JapanEast", "EastUS2"]
 }
 
 variable "cluster_count" {

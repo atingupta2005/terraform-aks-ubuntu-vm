@@ -24,3 +24,8 @@
 # Running Playbook
 - vim first_playbook.yml
 - ansible-playbook -i hosts first_playbook.yml
+
+ssh -i ssh-keys/terraform-azure.pem tuser@uaksvm-mplqgh-0.eastus.cloudapp.azure.com az login -u asreet-tech@atttrainings.com -p Azure@123456
+
+ssh -i ssh-keys/terraform-azure.pem tuser@uaksvm-mplqgh-0.eastus.cloudapp.azure.com az aks get-credentials --resource-group rg-aks-0 --name aks-0
+
