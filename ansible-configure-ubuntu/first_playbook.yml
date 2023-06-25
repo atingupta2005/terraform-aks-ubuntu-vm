@@ -51,3 +51,7 @@
       apt:
         pkg:
         - azure-cli
+        
+    - name: Execute the azure login command in remote shell
+      script:
+       cmd: login-azure-cli.sh >> login-azure-cli.log
