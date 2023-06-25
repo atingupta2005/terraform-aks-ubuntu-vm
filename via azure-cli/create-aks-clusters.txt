@@ -1,15 +1,12 @@
+# Change after creating 6 clusters in single subscripn and run below commands again
+
 subscription_id="6378784e-0a8a-4197-a15d-afc70adb2952"
 
 az account set --subscription $subscription_id
 
+mylocations=("eastus" "eastus2"  "japaneast" "westus" "northeurope" "uksouth")
 
-az provider list --query "[?namespace=='Microsoft.EventHub']" --output table
-az provider register --namespace 'Microsoft.EventHub'
-az provider list --query "[?namespace=='Microsoft.EventHub']" --output table
-
-mylocations=("eastus" "eastus2"  "japaneast" "westus" "northeurope" "southcentralus"  "uksouth")
-
-for i in $(seq 0 1); do
+for i in $(seq 1 2); do
     mylocation=${mylocations[$i]}
 	AKS_NAME="aks-$i"
 	AKS_RG="rg-aks-$i"
@@ -17,7 +14,7 @@ for i in $(seq 0 1); do
 	az group create --name $AKS_RG --location $mylocation	
 done
 
-for i in $(seq 0 1); do
+for i in $(seq 1 2); do
     mylocation=${mylocations[$i]}
 	AKS_NAME="aks-$i"
 	AKS_RG="rg-aks-$i"

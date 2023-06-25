@@ -1,6 +1,8 @@
 [demoservers]
-uaksvm-mplqgh-0.eastus.cloudapp.azure.com
-uaksvm-mplqgh-1.eastus.cloudapp.azure.com
+lnx-hpqzdp-1-1.japaneast.cloudapp.azure.com
+lnx-hpqzdp-1-2.japaneast.cloudapp.azure.com
+lnx-hpqzdp-1-3.japaneast.cloudapp.azure.com
+
 
 
 [all:vars]
