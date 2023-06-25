@@ -32,7 +32,7 @@
     - name: Download rstudio-server-2021.09.0-351-amd64.deb
       ansible.builtin.get_url:
         url: https://download2.rstudio.org/server/bionic/amd64/rstudio-server-2021.09.0-351-amd64.deb
-        dest: /tmp/foo.conf
+        dest: /tmp/rstudio-server-2021.09.0-351-amd64.deb
         mode: '0777'
         
     - name: Install a .deb package
