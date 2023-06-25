@@ -1,0 +1,26 @@
+subscription_id="6378784e-0a8a-4197-a15d-afc70adb2952"
+
+az account set --subscription $subscription_id
+
+
+az provider list --query "[?namespace=='Microsoft.EventHub']" --output table
+az provider register --namespace 'Microsoft.EventHub'
+az provider list --query "[?namespace=='Microsoft.EventHub']" --output table
+
+mylocations=("eastus" "eastus2"  "japaneast" "westus" "northeurope" "southcentralus"  "uksouth")
+
+for i in $(seq 0 1); do
+    mylocation=${mylocations[$i]}
+	AKS_NAME="aks-$i"
+	AKS_RG="rg-aks-$i"
+
+	az group create --name $AKS_RG --location $mylocation	
+done
+
+for i in $(seq 0 1); do
+    mylocation=${mylocations[$i]}
+	AKS_NAME="aks-$i"
+	AKS_RG="rg-aks-$i"
+
+	az aks create --resource-group $AKS_RG --name $AKS_NAME --node-count 3  --load-balancer-sku basic --node-vm-size standard_b2ms --network-plugin azure --network-policy calico  --enable-managed-identity  --generate-ssh-keys --location $mylocation --enable-node-public-ip
+done

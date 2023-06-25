@@ -1,0 +1,51 @@
+---
+- name: This is a hello-world example
+  hosts: all
+  become: true
+  tasks:
+    - name: Run the equivalent of "apt-get update" as a separate step
+      ansible.builtin.apt:
+        update_cache: yes
+
+    - name: Update all packages to their latest version
+      apt:
+        name: "*"
+        state: latest
+
+    - name: Upgrade all apt packages
+      apt: upgrade=dist force_apt_get=yes
+    
+    - name: Install a list of packages
+      apt:
+        pkg:
+        - openssl
+        - r-base
+        - gdebi-core
+        - tree
+        - nano
+        - ca-certificates
+        - curl
+        - apt-transport-https
+        - lsb-release
+        - gnupg
+
+    - name: Download rstudio-server-2021.09.0-351-amd64.deb
+      ansible.builtin.get_url:
+        url: https://download2.rstudio.org/server/bionic/amd64/rstudio-server-2021.09.0-351-amd64.deb
+        dest: /tmp/foo.conf
+        mode: '0777'
+        
+    - name: Install a .deb package
+      ansible.builtin.apt:
+        deb: /tmp/rstudio-server-2021.09.0-351-amd64.deb
+    
+    - name: Execute the command in remote shell; stdout goes to the specified file on the remote
+        ansible.builtin.shell: install-azure-cli.sh >> install-azure-cli.log
+    - name: Run the equivalent of "apt-get update" as a separate step
+      ansible.builtin.apt:
+        update_cache: yes
+
+    - name: Install a list of packages
+      apt:
+        pkg:
+        - azure-cli

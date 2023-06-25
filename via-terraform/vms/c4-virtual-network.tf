@@ -23,7 +23,7 @@ resource "azurerm_public_ip" "mypublicip" {
   resource_group_name = azurerm_resource_group.myrg[count.index].name
   location            = azurerm_resource_group.myrg[count.index].location
   allocation_method   = "Dynamic"
-  domain_name_label = "ubuntu-mplqgh-${count.index}"
+  domain_name_label = "uaksvm-mplqgh-${count.index}"
   sku               = "Basic"
 }
 

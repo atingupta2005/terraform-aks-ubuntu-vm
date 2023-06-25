@@ -6,7 +6,7 @@ variable "aks_regions" {
 
 variable "vm_size" {
   type = string
-  default = "standard_b2ms"
+  default = "standard_b2s"
 }
 
 variable "node_count" {
