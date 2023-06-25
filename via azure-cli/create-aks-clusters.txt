@@ -1,12 +1,16 @@
 # Change after creating 6 clusters in single subscripn and run below commands again
+subscription_id="Pay as you go - 10"
+subscription_id="Pay as you go - 11"
+subscription_id="Pay as you go - 12"
+subscription_id="Pay as you go - 13"
+subscription_id="Pay as you go - 14"
 
-subscription_id="6378784e-0a8a-4197-a15d-afc70adb2952"
-
-az account set --subscription $subscription_id
+az account set --subscription "$subscription_id"
 
 mylocations=("eastus" "eastus2"  "japaneast" "westus" "northeurope" "uksouth")
 
-for i in $(seq 1 2); do
+# In future need to change from 1 to 5 in below line
+for i in $(seq 0 1); do
     mylocation=${mylocations[$i]}
 	AKS_NAME="aks-$i"
 	AKS_RG="rg-aks-$i"
@@ -14,7 +18,8 @@ for i in $(seq 1 2); do
 	az group create --name $AKS_RG --location $mylocation	
 done
 
-for i in $(seq 1 2); do
+# In future need to change from 1 to 5 in below line
+for i in $(seq 0 1); do
     mylocation=${mylocations[$i]}
 	AKS_NAME="aks-$i"
 	AKS_RG="rg-aks-$i"
