@@ -1,7 +1,7 @@
 # Resource-1: Azure Resource Group
 variable "aks_regions" {
   type = list(string)
-  default = ["EastUS", "EastUS2", "CentealUS", "NorthEurope", ]
+  #default = ["EastUS", "WestUS", "UKSouth", "SouthCentralUS", "NorthEurope", "JapanEast", "EastUS2"]
 }
 
 variable "vm_size" {

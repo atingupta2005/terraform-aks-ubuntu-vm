@@ -18,5 +18,7 @@ output "virtual_network_name" {
   #sensitive = true
 }
 
-
-
+# 3. Output Values - DNS Name
+output "dns_name" {
+  value = azurerm_public_ip.mypublicip[*].domain_name_label 
+}

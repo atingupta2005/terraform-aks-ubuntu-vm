@@ -9,6 +9,12 @@ resource "azurerm_linux_virtual_machine" "mylinuxvm" {
   admin_username      = var.admin_username
   disable_password_authentication = false
   network_interface_ids = [ element(azurerm_network_interface.myvmnic[*].id, count.index)]  
+  
+  admin_ssh_key {
+    username = var.admin_username
+    public_key = file("${path.module}/ssh-keys/terraform-azure.pub")
+  }
+  
   admin_password      = var.admin_password
   os_disk {
     name = "osdisk${count.index}"
@@ -21,6 +27,7 @@ resource "azurerm_linux_virtual_machine" "mylinuxvm" {
     sku       = "20_04-lts-gen2"
     version   = "latest"
   }
+  custom_data = filebase64("${path.module}/app-scripts/app1-cloud-init.txt")
 }
 
 

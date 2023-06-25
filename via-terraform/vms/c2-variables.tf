@@ -21,12 +21,6 @@ variable "resoure_group_name" {
   default = "rgubuntu"
 }
 
-# 4. Resource Group Location
-variable "resoure_group_location" {
-  description = "Resource Group Location"
-  type = string
-  default = "East US"
-}
 
 # 5. Virtual Network Name
 variable "virtual_network_name" {
@@ -37,7 +31,7 @@ variable "virtual_network_name" {
 
 variable "vm_size" {
   type = string
-  default = "standard_b2s"
+  default = "standard_b1s"
 }
 
 variable "admin_username" {
