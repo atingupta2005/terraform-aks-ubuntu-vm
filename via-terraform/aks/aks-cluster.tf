@@ -38,5 +38,6 @@ resource "azurerm_kubernetes_cluster" "default" {
     vm_size         = var.vm_size
     os_disk_size_gb = 30
 	enable_node_public_ip = true
+	temporary_name_for_rotation  = var.temporary_name_for_rotation
   }
 }

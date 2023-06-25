@@ -48,3 +48,8 @@ variable "identity_type" {
   type        = string
   default     = "SystemAssigned"
 }
+
+variable "temporary_name_for_rotation" {
+  type    = string
+  default = "taksplqb01"
+}
