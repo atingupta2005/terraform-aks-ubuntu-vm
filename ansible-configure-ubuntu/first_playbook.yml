@@ -41,7 +41,7 @@
     
     - name: Execute the command in remote shell
       script:
-       cmd: sh install-azure-cli.sh >> install-azure-cli.log
+       cmd: install-azure-cli.sh >> install-azure-cli.log
       
     - name: Run the equivalent of "apt-get update" as a separate step
       ansible.builtin.apt:
