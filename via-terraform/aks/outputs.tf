@@ -8,14 +8,17 @@ output "kubernetes_cluster_name" {
 
 output "host" {
   value = azurerm_kubernetes_cluster.default[*].kube_config.0.host
+  sensitive = true
 }
 
 output "client_key" {
   value = azurerm_kubernetes_cluster.default[*].kube_config.0.client_key
+  sensitive = true
 }
 
 output "client_certificate" {
   value = azurerm_kubernetes_cluster.default[*].kube_config.0.client_certificate
+  sensitive = true
 }
 
 output "kube_config" {
@@ -25,6 +28,7 @@ output "kube_config" {
 
 output "cluster_username" {
   value = azurerm_kubernetes_cluster.default[*].kube_config.0.username
+  sensitive = true
 }
 
 output "cluster_password" {
