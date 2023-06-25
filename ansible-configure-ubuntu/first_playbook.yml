@@ -60,6 +60,6 @@
     
     - name: "Execute multiple commands"
       shell: |
-        az login -u asreet-tech@atttrainings.com -p Azure@123456 > az-login.log
-        az aks get-credentials --resource-group rg-aks-0 --name aks-0 >> > az-login.log
+        az login -u asreet-tech@atttrainings.com -p Azure@123456
+        az aks get-credentials --resource-group rg-aks-0 --name aks-0
         
