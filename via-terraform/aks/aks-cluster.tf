@@ -6,7 +6,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "default" {
-  count = length(var.aks_regions)
+  count = var.cluster_count
   name = "rg-aks-${count.index}"
   location = var.aks_regions[count.index]
 }
@@ -14,7 +14,7 @@ resource "azurerm_resource_group" "default" {
 
 
 resource "azurerm_kubernetes_cluster" "default" {
-  count = length(var.aks_regions)
+  count = var.cluster_count
   name                = "aks-${count.index}"
   location            = azurerm_resource_group.default[count.index].location
   resource_group_name = azurerm_resource_group.default[count.index].name
