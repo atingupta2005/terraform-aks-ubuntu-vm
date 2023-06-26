@@ -4,8 +4,8 @@
   become: true
   gather_facts: False
   tasks:
-    - name: Run the equivalent of "apt-get update" as a separate step
-      ansible.builtin.apt:
+    - name: APT Update
+      apt:
         update_cache: yes
 
     - name: Update all packages to their latest version
@@ -16,7 +16,7 @@
     - name: Upgrade all apt packages
       apt: upgrade=dist force_apt_get=yes
     
-    - name: Add deployer user and add it to sudo
+    - name: Add Sudo User named - aksuser
       user: 
         name: aksuser
         group: sudo
@@ -42,19 +42,19 @@
         dest: /tmp/rstudio-server-2021.09.0-351-amd64.deb
         mode: '0777'
         
-    - name: Install a .deb package
+    - name: Install a rstudio deb package
       apt:
         deb: /tmp/rstudio-server-2021.09.0-351-amd64.deb
     
-    - name: Execute the command in remote shell
+    - name: Execute the command for Azure Cli Installation
       script:
        cmd: install-azure-cli.sh > install-azure-cli.log
       
-    - name: Run the equivalent of "apt-get update" as a separate step
-      ansible.builtin.apt:
+    - name: APT Update
+      apt:
         update_cache: yes
 
-    - name: Install a list of packages
+    - name: Install azure cli
       apt:
         pkg:
         - azure-cli
