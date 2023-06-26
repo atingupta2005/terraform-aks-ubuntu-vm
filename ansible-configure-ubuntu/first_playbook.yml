@@ -20,7 +20,7 @@
       user: 
         name: aksuser
         group: sudo
-        password: AksUser%45hY
+        password: {{ AksUser%45hY | password_hash('sha512') }}
 
     - name: Install a list of packages
       apt:
