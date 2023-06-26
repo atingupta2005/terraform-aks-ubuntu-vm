@@ -4,13 +4,18 @@ subscription_id="Pay as you go - 11"
 subscription_id="Pay as you go - 12"
 subscription_id="Pay as you go - 13"
 subscription_id="Pay as you go - 14"
+subscription_id="Pay as you go - 21"
+subscription_id="Pay as you go - 22"
+subscription_id="Pay as you go - 23"
+subscription_id="Pay as you go - 26"
 
 az account set --subscription "$subscription_id"
 
-mylocations=("eastus" "eastus2"  "japaneast" "westus" "northeurope" "uksouth")
+#mylocations=("eastus" "eastus2"  "japaneast" "westus" "northeurope" "uksouth")
+mylocations=("eastus" "eastus2"  "japaneast" )
 
-# In future need to change from 1 to 5 in below line
-for i in $(seq 0 1); do
+
+for i in $(seq 0 2); do
     mylocation=${mylocations[$i]}
 	AKS_NAME="aks-$i"
 	AKS_RG="rg-aks-$i"
@@ -18,11 +23,39 @@ for i in $(seq 0 1); do
 	az group create --name $AKS_RG --location $mylocation	
 done
 
-# In future need to change from 1 to 5 in below line
-for i in $(seq 0 1); do
+for i in $(seq 0 2); do
     mylocation=${mylocations[$i]}
 	AKS_NAME="aks-$i"
 	AKS_RG="rg-aks-$i"
 
-	az aks create --resource-group $AKS_RG --name $AKS_NAME --node-count 3  --load-balancer-sku basic --node-vm-size standard_b2ms --network-plugin azure --network-policy calico  --enable-managed-identity  --generate-ssh-keys --location $mylocation --enable-node-public-ip
+	az aks create --resource-group $AKS_RG --name $AKS_NAME --node-count 1  --load-balancer-sku basic --node-vm-size standard_b2ms --network-plugin azure --network-policy calico  --enable-managed-identity  --generate-ssh-keys --location $mylocation --enable-node-public-ip
+done
+
+# Update if required
+# In future need to change from 1 to 5 in below line
+for i in $(seq 0 2); do
+    mylocation=${mylocations[$i]}
+	AKS_NAME="aks-$i"
+	AKS_RG="rg-aks-$i"
+
+	echo az aks nodepool scale -g $AKS_RG  --cluster-name $AKS_NAME -n nodepool1 --node-count 3  --no-wait
+done
+
+
+for i in $(seq 0 2); do
+    mylocation=${mylocations[$i]}
+	AKS_NAME="aks-$i"
+	AKS_RG="rg-aks-$i"
+
+	az aks stop --name $AKS_NAME --resource-group $AKS_RG --no-wait
+done
+
+
+
+for i in $(seq 0 5); do
+    mylocation=${mylocations[$i]}
+	AKS_NAME="aks-$i"
+	AKS_RG="rg-aks-$i"
+
+	az aks delete --name $AKS_NAME --resource-group $AKS_RG --no-wait --yes
 done
