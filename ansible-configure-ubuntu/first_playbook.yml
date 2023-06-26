@@ -20,7 +20,7 @@
       user: 
         name: aksuser
         group: sudo
-        password: {{ AksUser%45hY | password_hash('sha512') }}
+        password: "$6$SxHGTByZaeJwg/Ba$tPUPVGfbmAYYAcJClo1ONfvV.8b8LQYrm/JzQ1ilLMY9Na9raNKOQ8UsvA2hTxjRjZQ/eIBKcgDH.AHzNWBCo0"
 
     - name: Install a list of packages
       apt:
