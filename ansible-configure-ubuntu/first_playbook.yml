@@ -2,6 +2,7 @@
 - name: This is a hello-world example
   hosts: all
   become: true
+  gather_facts: False
   tasks:
     - name: Run the equivalent of "apt-get update" as a separate step
       ansible.builtin.apt:
